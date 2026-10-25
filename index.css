@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --primary:#0a58a6;
+  --primary-2:#2563eb;
+  --primary-3:#4f46e5;
+  --surface:#f4f7fc;
+  --surface-card:#ffffff;
+  --ink:#0f2237;
+  --ink-soft:#4b6478;
+  --line:#dbe6f2;
+  --ok:#0e9f6e;
+  --bad:#e02424;
+  --warn:#d97706;
+  --safe-area-inset-top:0px;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --surface:#0a1524;
+    --surface-card:#10203a;
+    --ink:#e8f1fb;
+    --ink-soft:#9db8d2;
+    --line:#1e3a5c;
+  }
+}
+html{ direction:rtl; }
+body{
+  font-family:'Tajawal', system-ui, sans-serif;
+  background:var(--surface);
+  color:var(--ink);
+  margin:0;
+}
+.font-cairo{ font-family:'Cairo','Tajawal',sans-serif; }
+.card-premium{
+  background:color-mix(in srgb, var(--surface-card) 82%, transparent);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border:1px solid var(--line);
+  border-radius:20px;
+  box-shadow:0 12px 32px rgba(10,88,166,.10), 0 2px 6px rgba(10,88,166,.06);
+}
+.grad-text{
+  background:linear-gradient(90deg,#0a58a6,#2563eb,#4f46e5);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.grad-bg{ background:linear-gradient(135deg,#0a58a6 0%,#2563eb 55%,#4f46e5 100%); }
+select.native-select{
+  appearance:menulist !important;
+  -webkit-appearance:menulist !important;
+  pointer-events:auto !important;
+  position:relative; z-index:9999;
+}
+input,select,textarea{ font-family:'Tajawal',sans-serif; }
+button{ touch-action:manipulation; pointer-events:auto; -webkit-tap-highlight-color:transparent; }
+input,select,textarea{ pointer-events:auto; touch-action:manipulation; }
+.btn-quick{ transition:transform .12s ease, box-shadow .12s ease, background .12s ease; }
+.btn-quick:active{ transform:scale(.94); }
+@keyframes slideUp{ from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:translateY(0);} }
+.anim-up{ animation:slideUp .45s ease both; }
+@keyframes pulseDot{ 0%,100%{opacity:1;} 50%{opacity:.35;} }
+.pulse-dot{ animation:pulseDot 1.4s ease infinite; }
+::-webkit-scrollbar{ width:8px; height:8px; }
+::-webkit-scrollbar-thumb{ background:#b9d2ea; border-radius:99px; }
+table{ border-collapse:separate; border-spacing:0; }
